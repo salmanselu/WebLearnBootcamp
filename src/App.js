@@ -17,6 +17,9 @@ function App() {
 
     let onSubmit = () =>  {
       console.log("button click");
+      fetch(`${baseURL}/term`)
+      .then(response => response.json())
+      .then(data => console.log(data))
     }
 
   return (
