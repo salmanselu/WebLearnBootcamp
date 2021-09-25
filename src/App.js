@@ -7,10 +7,14 @@ import './App.css';
 
 function App() {
   let [searchText, setSearchTextCount] = useState("");
+
+  let baseURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+
   let onChangeText = (event) => {
     setSearchTextCount(event.target.value)
     console.log(event.target.value)
   }
+
     let onSubmit = () =>  {
       console.log("button click");
     }
