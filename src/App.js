@@ -20,7 +20,7 @@ function App() {
       console.log("button click");
       fetch(`${baseURL}/${searchText}`)
       .then(response => response.json())
-      .then(data => {console.log(data[0].word);setResult(data)})
+      .then(data => {console.log(data);setResult(data)})
     }
 
   return (
@@ -37,7 +37,7 @@ function App() {
 
         
           <div>
-              {result === undefined? <p>result[0].word</p> : <p></p>}
+              {result !== undefined? <p>{result[0].word}</p> : <p></p>}
               <p></p>
               <p></p>
 
