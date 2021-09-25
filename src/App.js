@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   let [searchText, setSearchTextCount] = useState("");
-  let [result, setResult] = useState(NULL);
+  let [result, setResult] = useState(undefined)
 
   let baseURL = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
@@ -18,10 +18,9 @@ function App() {
 
     let onSubmit = () =>  {
       console.log("button click");
-      fetch(`${baseURL}/term`)
+      fetch(`${baseURL}/${searchText}`)
       .then(response => response.json())
-      .then(data => console.log(data[0].word))
-      setResult(data)
+      .then(data => {console.log(data[0].word);setResult(data)})
     }
 
   return (
@@ -34,7 +33,17 @@ function App() {
          <p>Please type something here</p>
          :
          <p className="word">{searchText}</p>
-      }
+        }
+
+        
+          <div>
+              {result === undefined? <p>result[0].word</p> : <p></p>}
+              <p></p>
+              <p></p>
+
+          </div>
+
+        
       </div>
     </div>
   );
