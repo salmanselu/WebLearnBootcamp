@@ -17,6 +17,7 @@ function App() {
       <div>
         <input onChange={onChangeText} type="text" name="searchWord"></input>
         <button>search</button>
+        {searchText === "" && <p>Please type something here</p>}
         <p className="word"></p>
       </div>
     </div>
