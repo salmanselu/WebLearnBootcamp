@@ -7,8 +7,9 @@ import './App.css';
 
 function App() {
   let [searchText, setSearchTextCount] = useState("");
+  let [result, setResult] = useState(NULL);
 
-  let baseURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
+  let baseURL = "https://api.dictionaryapi.dev/api/v2/entries/en";
 
   let onChangeText = (event) => {
     setSearchTextCount(event.target.value)
@@ -19,7 +20,8 @@ function App() {
       console.log("button click");
       fetch(`${baseURL}/term`)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => console.log(data[0].word))
+      setResult(data)
     }
 
   return (
