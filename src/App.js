@@ -13,12 +13,15 @@ function App() {
   }
   return (
     <div className="App">
-      <h1>Welcome to dict App {searchText}</h1>
+      <h1 style={{color: searchText===""?"red":"black"}}>Welcome to dict App {searchText}</h1>
       <div>
         <input onChange={onChangeText} type="text" name="searchWord"></input>
         <button>search</button>
-        {searchText === "" && <p>Please type something here</p>}
-        <p className="word"></p>
+        {searchText === "" ?
+         <p>Please type something here</p>
+         :
+         <p className="word">{searchText}</p>
+      }
       </div>
     </div>
   );
